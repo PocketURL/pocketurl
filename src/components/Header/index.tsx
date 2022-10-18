@@ -1,7 +1,6 @@
 import {
   ActionIcon,
   Group,
-  Switch,
   useMantineColorScheme,
   useMantineTheme,
 } from "@mantine/core";

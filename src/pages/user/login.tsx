@@ -1,4 +1,4 @@
-import { Button, Card, Container, Divider, Text, Title } from "@mantine/core";
+import { Button, Card, Container, Text } from "@mantine/core";
 import { GetServerSideProps } from "next";
 import { signIn } from "next-auth/react";
 import { IconBrandGoogle } from "tabler-icons";

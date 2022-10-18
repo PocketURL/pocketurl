@@ -1,4 +1,4 @@
-import { Code, Footer, Loader, Text } from "@mantine/core";
+import { Code, Footer, Loader, Text, useMantineTheme } from "@mantine/core";
 import { NextLink } from "@mantine/next";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -10,8 +10,8 @@ export default function Redirect() {
   const router = useRouter();
   const { code } = router.query;
   const trpcCtx = trpc.useContext();
-  const increaseRedirectCount = trpc.useMutation("url.increaseRedirectCount");
   const [longURL, setLongURL] = useState("");
+  const theme = useMantineTheme();
 
   useEffect(() => {
     (async () => {
@@ -31,6 +31,7 @@ export default function Redirect() {
       }
     })();
   });
+
   return (
     <div
       style={{
@@ -44,7 +45,9 @@ export default function Redirect() {
       <Logo order={1} />
       <Loader mt="sm" variant="dots" />
       <Text mt="sm">Redirecting you to</Text>
-      <Code mt="xs">{longURL}</Code>
+      <Code style={{ maxWidth: "95%", overflowWrap: "anywhere" }} mt="xs">
+        {longURL}
+      </Code>
       <Footer
         height={80}
         pt="sm"
